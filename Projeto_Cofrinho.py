@@ -6,18 +6,20 @@ class Moeda:
     def info(self):
         print(f"{self.tipo}: {self.valor}")
 
-    def converter(self):
-        # Implementação da lógica de conversão aqui
-        # Exemplo simplificado:
+    def converter(self,para):
         taxas = {
-                 'Real': {'Dolar': 5.2, 'Euro': 6.18}}
-        return self.valor * taxas[self.tipo]
-class Cofrinho:
-    def __init__(self):
-        
-        self.lista_moedas=[]
+            'Real': 1,          # 1 Real equivale a 1 Real
+            'Dolar': 5.2,       # 1 Dólar equivale a 5.2 Reais
+            'Euro': 6.18        # 1 Euro equivale a 6.18 Reais
+        }
+        return self.valor * taxas[self.tipo]  # Converte o valor usando a taxa correspondente
 
-    def adicionar(self, moeda):
+
+class Cofrinho:
+    def __init__(self):#construtor da class cofrinho  
+        self.lista_moedas=[]#o inico atributo dessa class é a lista
+
+    def adicionar(self, moeda):#metodo adicionar
         self.lista_moedas.append(moeda)
 
     def remover(self,moeda):
@@ -25,13 +27,13 @@ class Cofrinho:
     
     def listar_moedas(self):
         for moeda in self.lista_moedas:
-            moeda.info()
+            moeda.info()#famada da class moeda e pelo metodo info
 
-    def total_valor_convertido(self, para):
+    def total_valor_convertido(self,para):
         total = 0
         for moeda in self.lista_moedas:
             total+=moeda.converter(para)
-
+        return total
 
 class Dolar(Moeda):
     pass
@@ -40,24 +42,22 @@ class Euro(Moeda):
     pass
 
 class Real(Moeda):
+
     pass
 
 #Função criar moeda 
 def criar_moeda():
-    tipo_moeda = input("Selecione o tipo de Moeda \n1-Real\n2-Dolar\n3-Euro: ")
+    tipo_moeda = input("Selecione o tipo de Moeda \n1-Real\n2-Dolar\n3-Euro:\n>> ")
     while tipo_moeda not in ('1', '2', '3'): #trata os valores digitados
         print("Opção inválida. Por favor, selecione 1, 2 ou 3.")
-        tipo_moeda = input("Selecione o tipo de Moeda \n11-Real\n2-Dolar\n3-Euro: ")
+        tipo_moeda = input("Selecione o tipo de Moeda \n1-Real\n2-Dolar\n3-Euro:\n>> ")
 
     tipos = {1: 'Real', 2: 'Dolar', 3: 'Euro'}# Valida o tipo de moeda sem usar os if e else
-    
     valor = float(input("Digite o valor da moeda: "))
-
     return tipos[int(tipo_moeda)], valor #retorna o tipo e o valor da moeda criada
 
 def main():
-    cofrinho = Cofrinho()
-
+    cofrinho = Cofrinho()#instanciando o cofrinho
     while True:
         print("\nOpcoes:")
         print("1. Adicionar moeda")
@@ -68,7 +68,7 @@ def main():
 
         if opcao == '1':
             tipo, valor = criar_moeda() #abre a funciao criar e retorna o tipo e o valor
-            moeda = Moeda(tipo, valor)
+            moeda = Moeda(tipo, valor)# instanciando a class moeda
             cofrinho.adicionar(moeda)
         elif opcao == '2':
             cofrinho.listar_moedas()
