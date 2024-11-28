@@ -1,7 +1,7 @@
 # Documentação do Projeto Cofrinho
 
 ## Introdução
-Este projeto simula um cofrinho virtual, permitindo adicionar, remover, listar moedas e converter valores entre diferentes moedas. É uma adaptação de um projeto originalmente em Java para Python, utilizando os princípios de **Programação Orientada a Objetos (POO)**.
+Este projeto simula um cofrinho virtual, permitindo adicionar, remover, listar moedas e converter valores entre diferentes moedas. É uma adaptação de um projeto originalmente em Java para Python, utilizando os princípios de Programação Orientada a Objetos (POO).
 
 ---
 
@@ -91,5 +91,5 @@ Os métodos representam comportamentos das classes, como:
 ---
 ## Resultado esperado
 
-![img](captura.png)
+![img](Captura.png).
 
